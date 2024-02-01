@@ -1,0 +1,13 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user %>
+  <% if current_user.has_role? :admin%>
+  <p>role: <% current_user.roles.each do |role|%><%= role.name.capitalize %><% end %></p>
+  <p>Hello <%= current_user&.email %></p><br>
+  <% else %>
+  <p>role: <% current_user.roles.each do |role|%><%= role.name.capitalize %><% end %></p>
+  <p>Hello <%= current_user&.email %></p><br>
+  <% end %>
+<% else %>
+  <p>You are not signed in</p>     
+<% end %>
