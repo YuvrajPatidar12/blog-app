@@ -1,4 +1,6 @@
-<h1>New article</h1>
+<% content_for :add_hotel_heading do  %>
+  <h2 class="card-title text-center ">New Article</h2>
+<% end %>
 
 <%= render "form", article: @article %>
 

@@ -4,6 +4,10 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true, length: {minimum: 10}
 
+  before_save do
+    self.title = title.titleize
+    self.description = description.capitalize
+  end
   after_save do
     user.add_role :author
   end
