@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit,:create ,:update, :destroy]
-  # load_and_authorize_resource
   def index
     @articles = Article.all
   end
@@ -11,7 +10,6 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    # authorize! :read, @post
   end
 
   def edit

@@ -3,7 +3,11 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true, length: {minimum: 10}
-  validates :slug, presence: true
+
+  after_save do
+    user.add_role :author
+  end
+  
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 end

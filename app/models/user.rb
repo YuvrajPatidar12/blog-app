@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
   end
+
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
 end
